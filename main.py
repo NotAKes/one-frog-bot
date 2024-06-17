@@ -96,12 +96,10 @@ async def yesterday(message: types.Message):
 
 @dp.message(F.text == "3 дня🗓")
 async def threedays(message: types.Message):
-    global date
-    date = 4
     if place:
-        for i in range(1, 4):
+        for date in range(2, 5):
             await message.answer(
-                f" <b>Прогноз погоды на {datetime.datetime.strftime((datetime.datetime.now() + datetime.timedelta(days=i)).date(), "%d.%m.%Y")}</b> \n"
+                f" <b>Прогноз погоды на {datetime.datetime.strftime((datetime.datetime.now() + datetime.timedelta(days=date - 1)).date(), "%d.%m.%Y")}</b> \n"
                 f"\n{parser(date, list_=place)}", parse_mode="html")
     else:
         await message.reply("Место не выбрано")
@@ -110,12 +108,10 @@ async def threedays(message: types.Message):
 
 @dp.message(F.text == "Неделя🗓")
 async def week(message: types.Message):
-    global date
-    date = 8
     if place:
-        for i in range(1, 7):
+        for date in range(2, 9):
             await message.answer(
-                f" <b>Прогноз погоды на {datetime.datetime.strftime((datetime.datetime.now() + datetime.timedelta(days=i)).date(), "%d.%m.%Y")}</b> \n"
+                f" <b>Прогноз погоды на {datetime.datetime.strftime((datetime.datetime.now() + datetime.timedelta(days=date - 1)).date(), "%d.%m.%Y")}</b> \n"
                 f"\n"
                 f"{parser(date, list_=place)}", parse_mode="html")
     else:
