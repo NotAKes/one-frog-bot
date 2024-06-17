@@ -20,6 +20,7 @@ MOSCOW = cities[0]
 MINSK = cities[1]
 SPB = cities[2]
 AST = cities[3]
+OZ = cities[4]
 
 place = ''
 
@@ -34,7 +35,7 @@ async def github_func(message: types.Message):
     await message.answer("https://github.com/NotAKes/AOWBee_bot")
 
 
-@dp.message(F.text == "Москва 🇷🇺")
+@dp.message(F.text == "Москва")
 async def timeMSK_func(message: types.Message):
     global place
     place = ''
@@ -42,7 +43,15 @@ async def timeMSK_func(message: types.Message):
     await choosetime_func(message)
 
 
-@dp.message(F.text == "Астана 🇰🇿")
+@dp.message(F.text == "Орехово-Зуево")
+async def timeOZ_func(message: types.Message):
+    global place
+    place = ''
+    place = OZ
+    await choosetime_func(message)
+
+
+@dp.message(F.text == "Астана")
 async def timeAST_func(message: types.Message):
     global place
     place = ''
@@ -50,7 +59,7 @@ async def timeAST_func(message: types.Message):
     await choosetime_func(message)
 
 
-@dp.message(F.text == "С.Петербург 🇷🇺")
+@dp.message(F.text == "С.Петербург")
 async def timeSPB_func(message: types.Message):
     global place
     place = ''
@@ -58,7 +67,7 @@ async def timeSPB_func(message: types.Message):
     await choosetime_func(message)
 
 
-@dp.message(F.text == "Минск 🇧🇾")
+@dp.message(F.text == "Минск")
 async def timeMIN_func(message: types.Message):
     global place
     place = ''
@@ -161,10 +170,9 @@ async def main():
 async def choose_place(message: types.Message):
     inp = [
         [
-            types.KeyboardButton(text="Москва 🇷🇺"),
-            types.KeyboardButton(text="Минск 🇧🇾"),
-            types.KeyboardButton(text="С.Петербург 🇷🇺"),
-            types.KeyboardButton(text="Астана 🇰🇿")
+            types.KeyboardButton(text="Москва"),
+            types.KeyboardButton(text="С.Петербург"),
+            types.KeyboardButton(text="Орехово-Зуево")
         ],
 
     ]
@@ -173,7 +181,9 @@ async def choose_place(message: types.Message):
         resize_keyboard=True,
         input_field_placeholder="Выберите регион из списка доступных"
     )
-    await message.answer("Выберите регион из списка доступных:", reply_markup=keyboard)
+    await message.answer(
+        f"Выберите регион из списка доступных:\n\n 🇷🇺 Москва, С.Петербург, Орехово-Зуево\n 🇧🇾 Минск \n 🇰🇿 Астана \n {"-" * 40} \nДля выбора напишите название города или нажмите на кнопку",
+        reply_markup=keyboard)
 
 
 async def choosetime_func(message: types.Message):
