@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pypro1"
+version = "0.1.0"
+description = ""
+authors = ["NotAKes"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aiogram = "^3.6.0"
+python-dotenv = "^1.0.1"
+beautifulsoup4 = "^4.12.3"
+fake-useragent = "^1.5.1"
+requests = "^2.32.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
