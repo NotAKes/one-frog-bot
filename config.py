@@ -1,12 +1,12 @@
-cities = [{1: "moscow-url",
+cities = {"MSK":{1: "moscow-url",
            2: "moscow-url-tomorrow"},
-          {1: "minsk-url",
+          "MINSK":{1: "minsk-url",
            2: "minsk-url-tomorrow"},
-          {1: "spb-url",
+          "SPB":{1: "spb-url",
            2: "spb-url-tomorrow"},
-          {1: "astana-url",
-           2: "astana-url-tomorrow"}
-          ]
+          "etc..":{1: "etc..-url",
+           2: "etc..-url-tomorrow"}
+         }
 
 emotes = {'Безоблачно': '☀️',
           'Малооблачно,  дождь': '🌦',
