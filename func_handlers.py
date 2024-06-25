@@ -8,6 +8,7 @@ from parseit import parser
 from config import cities
 
 router = Router()
+place = ''
 
 
 @router.message(F.text == "О боте")
