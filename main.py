@@ -5,6 +5,7 @@ import logging
 import os
 from dotenv import load_dotenv, find_dotenv
 
+
 async def main():
     # логгирование
     logging.basicConfig(level=logging.INFO, filename="logs.log", filemode="w",
