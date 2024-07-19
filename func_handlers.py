@@ -1,4 +1,3 @@
-import asyncio
 from aiogram.filters.command import Command
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram import F, types
@@ -8,15 +7,14 @@ from parseit import parser
 from config import cities
 
 router = Router()
-place = ''
 
 
 @router.message(F.text == "О боте")
 async def github_func(message: types.Message):
     url_buttons = InlineKeyboardBuilder()
     url_buttons.row(
-        types.InlineKeyboardButton(text='Сообщить об ошибке', url='https://github.com/NotAKes/aowbee_bot/issues'))
-    url_buttons.row(types.InlineKeyboardButton(text='Github проекта', url='https://github.com/NotAKes/AOWBee_bot'))
+        types.InlineKeyboardButton(text='Сообщить об ошибке', url='https://github.com/NotAKes/one-frog-bot_bot/issues'))
+    url_buttons.row(types.InlineKeyboardButton(text='Github проекта', url='https://github.com/NotAKes/one-frog-bot'))
     url_buttons.row(types.InlineKeyboardButton(text='Написать разработчику', url='t.me/notakees'))
     await message.answer('Выберите ссылку🔗', reply_markup=url_buttons.as_markup(), )
 
@@ -139,7 +137,9 @@ async def choose_place(message: types.Message):
         [
             types.KeyboardButton(text="Москва"),
             types.KeyboardButton(text="С.Петербург"),
-            types.KeyboardButton(text="Орехово-Зуево")
+            types.KeyboardButton(text="Орехово-Зуево"),
+            types.KeyboardButton(text="Астана"),
+            types.KeyboardButton(text="Минск")
         ],
 
     ]
